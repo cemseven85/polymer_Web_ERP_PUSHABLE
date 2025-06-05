@@ -1,0 +1,15 @@
+# Ignore video files
+*.mov
+
+# Ignore Visual Studio build and temp files
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.db
+*.dll
+*.exe
+*.log
+*.pdb
+*.bak

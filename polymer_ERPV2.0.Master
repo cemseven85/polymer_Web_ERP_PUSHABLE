@@ -1,0 +1,196 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="polymer_ERPV2.0.master.cs" Inherits="polymer_Web_ERP_V4.polymer_ERPV2__0"  %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+
+    <meta content="minimum-scale=1.0, width=device-width, initial-scale=1" name="viewport">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html"; charset="utf-8";encoding="UTF-8" />
+    <title></title>
+
+    <link href="Content/StyleSheet-ERPV2.0.css" rel="stylesheet" />
+   
+     
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+     
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js" integrity="sha512-rMGGF4wg1R73ehtnxXBt5mbUfN9JUJwbk21KMlnLZDJh7BkPmeovBuddZCENJddHYYMkCh9hPFnPmS9sspki8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" integrity="sha512-yVvxUQV0QESBt1SyZbNJMAwyKvFTLMyXSyBHDO4BG5t7k/Lw34tyqlSDlKIrIENIzCl+RVUNjmCPG+V/GMesRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />     
+
+    <!--   <script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.13.4/sorting/datetime-moment.js"></script>   -->
+    <!-- Deneme Yaptım DataTable Date Sort -->
+
+    <!--   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>   -->
+    <!-- Deneme Yaptım DataTable Date Sort -->
+
+
+
+    <!--   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.13.1/sc-2.0.7/datatables.min.css"/>     Scroll için ekledim -->
+
+    <!--   <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.13.1/sc-2.0.7/datatables.min.js"></script>       Scroll için ekledim -->
+
+
+   <%-- Style Codes I Add after working with CoPilot--%>
+
+      <script type="text/javascript">
+          $(document).ready(function () {
+              $('form').on('keydown', function (e) {
+                  if (e.keyCode == 13) {
+                      e.preventDefault();
+                      return false;
+                  }
+              });
+          });
+  </script>
+
+    
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div class="master-header">
+                <asp:ImageButton ID="LogOutButton" runat="server" CssClass="header-button" ImageUrl="~/images/logout.png" CausesValidation="false" OnClick="LogOutButton_Click" />
+                <asp:ImageButton ID="HomeImageButton" runat="server" CssClass="header-button" ImageUrl="~/images/homearrow.png" CausesValidation="false" OnClick="HomeImageButton_Click" />
+                <asp:ImageButton ID="PreviousImageButton" runat="server" CssClass="header-button" ImageUrl="~/images/backarrow.png" CausesValidation="false" OnClick="PreviousImageButton_Click" />
+                <div>
+                    <asp:Label ID="DailyProduction_Label" runat="server" CssClass="header-button" Width="150px" Text="Daily Production="></asp:Label>&nbsp
+                    <asp:Label ID="DailyQuantity_Label" runat="server" CssClass="header-button" Text=""></asp:Label>
+                    <br />
+                    <asp:Label ID="MonthlyProduction_Label" runat="server" CssClass="header-button" Width="150px" Text="Monthly Production="></asp:Label>
+                    <asp:Label ID="MonthlyQuantity_Labe" runat="server" CssClass="header-button" Text=" "></asp:Label>
+                </div>
+                <div class="header-logo">
+                    <asp:Image ID="Logo" runat="server" ImageUrl="~/images/4polymerLogo2.png" />
+                </div>
+                <div class="header-logo">    <%--Add this part for LYAS MONITOR redirection--%>
+                    
+                    <asp:HyperLink ID="HyperLink1" runat="server" 
+                    NavigateUrl="http://lyasmonitor.com/" 
+                    Text="LYAS MONITOR" ForeColor="White"></asp:HyperLink>
+                </div>
+
+
+            </div>
+            <div class="master-mainContent">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="master-footer">
+
+                <div>
+                    <asp:LoginView ID="LoginView1" runat="server">
+                        <RoleGroups>
+                            <asp:RoleGroup Roles="Administrators">
+                                <ContentTemplate>
+                                    Welcome back,<asp:LoginName ID="LoginName1" runat="server" />
+                                    <div Class="setting">
+                                        
+                                        <asp:ImageButton ID="SettingsImageButton" runat="server" CssClass="header-button" ImageUrl="~/images/userSettings.png" CausesValidation="false" Height="35px" OnClick="SettingsImageButton_Click" Width="35px" />
+                                    </div>
+                                    <h3>Daily Notice</h3>
+                                    <asp:ListView ID="CommentList" runat="server" DataSourceID="CommentsDataSource" EnableViewState="false">
+                                        <LayoutTemplate>
+                                            <span id="itemPlaceholder" runat="server" />
+
+                                            <p>
+                                                <asp:DataPager ID="DataPager1" runat="server">
+                                                    <Fields>
+                                                        <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True"
+                                                            ShowLastPageButton="True" />
+                                                    </Fields>
+                                                </asp:DataPager>
+                                            </p>
+                                        </LayoutTemplate>
+
+                                        <ItemTemplate>
+                                            <h4>
+                                                <asp:Label ID="SubjectLabel" runat="server" Text='<%# Eval("notice_Subject") %>' /></h4>
+                                            <asp:Label ID="BodyLabel" runat="server" Text='<%# Eval("notice_Body").ToString().Replace(Environment.NewLine, "<br />") %>' />
+
+
+                                            <p align="center">
+                                                Posted by 
+                    <asp:Label ID="UserNameLabel" runat="server" Text='<%# Eval("UserName") %>' />
+                                                on
+                    <asp:Label ID="CommentDateLabel" runat="server" Text='<%# Eval("notice_Date") %>' />
+                                            </p>
+                                        </ItemTemplate>
+
+                                        <ItemSeparatorTemplate>
+                                            <hr />
+                                        </ItemSeparatorTemplate>
+                                    </asp:ListView>
+
+
+                                </ContentTemplate>
+
+                            </asp:RoleGroup>
+                        </RoleGroups>
+                        <AnonymousTemplate>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            Welcome back,<asp:LoginName ID="LoginName1" runat="server" Font-Size="XX-Large" />
+                           <%-- <div>
+                                <asp:ImageButton ID="SettingsImageButton" runat="server" CssClass="header-button" ImageUrl="~/images/userSettings.png" CausesValidation="false" Height="35px" OnClick="SettingsImageButton_Click" Width="35px" />
+                            </div>--%>
+                            <h3>Daily Notice</h3>
+                            <asp:ListView ID="CommentList" runat="server" DataSourceID="CommentsDataSource" EnableViewState="false">
+                                <LayoutTemplate>
+                                    <span id="itemPlaceholder" runat="server" />
+
+                                    <p>
+                                        <asp:DataPager ID="DataPager1" runat="server">
+                                            <Fields>
+                                                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True"
+                                                    ShowLastPageButton="True" />
+                                            </Fields>
+                                        </asp:DataPager>
+                                    </p>
+                                </LayoutTemplate>
+
+                                <ItemTemplate>
+                                    <h4>
+                                        <asp:Label ID="SubjectLabel" runat="server" Text='<%# Eval("notice_Subject") %>' /></h4>
+                                    <asp:Label ID="BodyLabel" runat="server" Text='<%# Eval("notice_Body").ToString().Replace(Environment.NewLine, "<br />") %>' />
+
+
+                                    <p align="center">
+                                        Posted by 
+                    <asp:Label ID="UserNameLabel" runat="server" Text='<%# Eval("UserName") %>' />
+                                        on
+                    <asp:Label ID="CommentDateLabel" runat="server" Text='<%# Eval("notice_Date") %>' />
+                                    </p>
+                                </ItemTemplate>
+
+                                <ItemSeparatorTemplate>
+                                    <hr />
+                                </ItemSeparatorTemplate>
+                            </asp:ListView>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                    <asp:SqlDataSource ID="CommentsDataSource" runat="server"
+                        ConnectionString="<%$ ConnectionStrings:polymerConnectionString %>"
+                        SelectCommand="SELECT tbl_dailyNotice.notice_Subject, tbl_dailyNotice.notice_Body, tbl_dailyNotice.notice_Date,aspnet_Users.UserName FROM tbl_dailyNotice  INNER JOIN aspnet_Users ON tbl_dailyNotice.UserId = aspnet_Users.UserId ORDER BY tbl_dailyNotice.notice_Date DESC"></asp:SqlDataSource>
+
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+</body>
+</html>

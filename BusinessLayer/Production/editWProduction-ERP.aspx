@@ -1,0 +1,206 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/polymer_ERPV2.0.Master" AutoEventWireup="true" CodeBehind="editWProduction-ERP.aspx.cs" Inherits="polymer_Web_ERP_V4.editProduction_ERP" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <div class="product-type">
+        <asp:ScriptManager runat="server" />
+
+        <div class="menu-item-datalist" style="overflow: scroll">
+            <asp:Panel ID="Product_Panel_4" runat="server" GroupingText="Production InPut List">
+                <table class="item-table">
+                    <tr>
+                        <td>
+                            <asp:Label ID="ItemDateMin_Label" runat="server" Text="Start Date" Font-Size="15pt"></asp:Label>
+                            &nbsp  &nbsp  &nbsp    &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp &nbsp 
+                           <asp:Label ID="ItemDateMax_Label" runat="server" Text="End Date" Font-Size="15pt"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:TextBox ID="ItemDateMin_TextBox" runat="server" CssClass="textBoxM" TextMode="date" Font-Size="15pt" AutoPostBack="False" OnTextChanged="jQueryScrapGridView_PreRender"></asp:TextBox>
+                            <asp:TextBox ID="ItemDateMax_TextBox" runat="server" CssClass="textBoxM" TextMode="date" Font-Size="15pt" AutoPostBack="False" OnTextChanged="jQueryScrapGridView_PreRender"></asp:TextBox>
+                            <asp:Button ID="ShowReportButton" runat="server" Text="Show Report" OnClick="ShowReportButton_Click"  />
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- Because layout is same I use the same class with product Type page same css   CssClass="product-type-gridview" -->
+                        <td>
+                            <asp:GridView ID="jQueryInPutProductionGridView" runat="server" CssClass="product-type-gridviewS" ShowHeaderWhenEmpty="true" OnPreRender="jQueryScrapGridView_PreRender" OnSelectedIndexChanged="jQueryInPutProductionGridView_SelectedIndexChanged"  >
+                                 <Columns>
+                                    <asp:CommandField SelectText="Select" ShowSelectButton="True" />
+                                </Columns>
+                                <SelectedRowStyle BackColor="#3333CC" />
+                            </asp:GridView>
+                        </td>
+                    </tr>
+                </table>
+            </asp:Panel>
+            
+        </div>
+
+        
+
+        
+
+         <div class="menu-item">
+            <asp:Panel ID="Panel_5" runat="server">
+                <table class="item-table">
+                    <tr>
+                        <td>
+                            <asp:Label ID="Purchase_Quantity_Label" runat="server" Text="Quantity" Font-Size="20pt"></asp:Label>
+
+                        </td>
+                        <td>
+                            <asp:Label ID="Purchase_Unit_Label" runat="server" Text="Unit" Font-Size="15pt"></asp:Label>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:TextBox ID="Purchase_Quantity_TextBox" runat="server" CssClass="textBox" Font-Size="20pt"></asp:TextBox>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
+                                ControlToValidate="Purchase_Quantity_TextBox" runat="server"
+                                ErrorMessage="Only Numbers Allowed"
+                                CssClass="valError"
+                                ValidationExpression="^(\d*\.?\d+|\d*(,\d*)*(\,\d+)?)$">     
+                            </asp:RegularExpressionValidator>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="Purchase_Unit_TextBox" runat="server" CssClass="textBoxXS" Font-Size="15pt"></asp:TextBox>
+
+                        </td>
+                    </tr>
+                </table>
+            </asp:Panel>
+        </div>
+
+        <div class="menu-item">
+            <asp:Panel ID="Panel_6" runat="server">
+                <table class="item-table">
+                    <tr>
+                        <td>
+                            <asp:Label ID="EmployeeID_Label" runat="server" Text="Select Supervisor" Font-Size="20pt"></asp:Label></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:DropDownList ID="EmployeeIDDropDownList" runat="server" CssClass="product-type-modify-dropdown" Max-Width="300px" Width="50%" AutoPostBack="True"></asp:DropDownList>
+                        </td>
+                    </tr>
+                </table>
+            </asp:Panel>
+        </div>
+
+        <div class="menu-item">
+            <asp:Panel ID="Panel_7" runat="server">
+                <table class="item-table">
+                    <tr>
+                        <td>
+                            <asp:Label ID="Num_Bales_Label" runat="server" Text="Number Of Bales"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:TextBox ID="Num_Bales_TextBox" runat="server" CssClass="textBox" Font-Size="20pt" ></asp:TextBox>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3"
+                                ControlToValidate="Num_Bales_TextBox" runat="server"
+                                ErrorMessage="Only Integer Allowed"
+                                CssClass="valError"
+                                ValidationExpression="\d+">                                 
+                            </asp:RegularExpressionValidator>
+                        </td>
+                    </tr>
+                </table>
+            </asp:Panel>
+        </div>
+        
+        <div class="menu-item">
+            <asp:Panel ID="Panel_8" runat="server">
+                <table class="item-table">
+                    <tr>
+                        <td>
+                            <asp:Label ID="Weight_Brige_Code_Label" runat="server" Text="Weight Brige Code" Font-Size="20pt"></asp:Label></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:TextBox ID="Weight_Brige_Code_TextBox" runat="server" CssClass="textBox"   Font-Size="20pt"></asp:TextBox></td>
+                    </tr>
+                </table>
+            </asp:Panel>
+        </div>
+
+
+        <div class="menu-item">
+            <asp:Panel ID="Product_Panel_9" runat="server">
+                <table class="item-table">
+                    <tr>
+                        <td>
+                            <asp:Label ID="Production_Note_Label" runat="server" Text="Production Note"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:TextBox ID="Production_Note_TextBox" runat="server" CssClass="textBox" Font-Size="20pt" Max-Width="650px" Width="98%" Height="200px" TextMode="MultiLine"></asp:TextBox>
+                        </td>
+                    </tr>
+                </table>
+            </asp:Panel>
+        </div>
+
+        <div class="menu-item">
+            <table class="item-table">
+                <tr>                   
+                    
+                    <td>
+                        <asp:Button ID="EditButton" runat="server" Text="EDIT" Height="30px" Width="150" Font-Size="15pt" Visible="True" OnClientClick="return confirm('Are you sure you want to Edit this Production?');" OnClick="EditButton_Click"   />
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+
+        </div>
+
+
+     <script type="text/javascript">
+
+         function pageLoad() {
+             createDataTable();
+             createDataTableTwo();
+         };
+
+
+         function createDataTable() {
+             var table = $('#<%=jQueryInPutProductionGridView.ClientID%>').DataTable(
+                 {
+                     bLengthChange: true,
+                     lengthMenu: [[5, 10, -1], [5, 10, "All"]],
+                     bFilter: true,
+                     bSort: true,
+                     bPaginate: true,
+                     retrieve: true,
+                     stateSave: false,
+                     order: [[1, 'DESC']],
+
+                 });
+
+         }
+
+     </script>
+
+
+    <script type="text/javascript">
+       
+         $('#<%=EmployeeIDDropDownList.ClientID%>').chosen();
+
+        /* $(".chosen-results").css('font-size', '20pt');  CSS StyleSheet de yaptım.   .chosen-results  altında    */
+
+
+        $(".chosen-container").css('font-size', '15pt');     /* .chosen-container  is coming from chosen()  chosen.min.css" we can control its CSS script  */
+
+        /* By this code we can style the dropdownlist  related with Jquary. Important Practice  */
+    </script>    
+
+
+</asp:Content>

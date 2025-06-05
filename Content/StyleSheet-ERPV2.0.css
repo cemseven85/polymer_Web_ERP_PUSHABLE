@@ -1,0 +1,475 @@
+﻿.master-header {
+    background-color: #35a79c; /*   Master Header Color */
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    height: auto;
+    gap: 20px;
+}
+
+    .master-header .header-logo {
+        border: solid;
+        display: flex; /* Enable flexbox */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        text-align: center; /* Center text within the logo if needed */
+        height: 100%; /* Ensure the logo container takes full height */
+    }
+
+
+.header-button {
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: groove;
+    border-color: white;
+    background-color: #35a79c;
+}
+
+.master-footer {
+    background-color: #35a79c; /*   Master Footer Color */
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+    .master-footer .setting {
+        justify-content: center;
+        display: flex;
+        
+    }
+
+
+.master-mainContent {
+    background-color: #306178; /*   Master Main  Color */
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+/*   Main Page CSS  Start */
+
+.main {
+    background-color: white; /* Main Page Main Color */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    margin: 10px;
+    gap: 10px;
+}
+
+    .main .menu-item { /* Main Page manu İtem Color */
+        background-color: #b7ded2;
+        position: relative;
+        flex-basis: 250px;
+        text-align: center;
+        /* padding-top:2%; */
+        font-size: 20pt;
+        font-family: 'Times New Roman', serif;
+        font-weight: bold;
+        justify-content: center;
+        margin-top: 20px;
+        flex-grow: 1;
+    }
+
+        .main .menu-item .item-table {
+            width: 100%;
+            height: auto;
+            border: solid;
+            /* margin: 0 auto; */
+            font-size: 20pt;
+        }
+
+
+
+.mainLogin {
+    background-color: white; /* Main Page Main Color */
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    margin: 10px;
+    gap: 10px;
+}
+
+.login {
+    background-color: white;
+    width: 33%;
+    border: thin;
+    text-align:center;
+    
+}
+
+.loginHeader {
+    font-size: 50px;
+    color: #35a79c;
+}
+
+.loginLable {
+    font-size: 30px;
+    color: #306178;
+}
+
+.loginTextBox {
+    width: auto;
+    padding: 7px;
+    border-radius: 6px;
+    font-size: 22px;
+    
+    background: #fbfbfb;
+    border: 2px solid transparent;
+    height: 30px;
+    box-shadow: 0 0 0 1px #dddddd, 0 2px 4px 0 rgb(0 0 0 / 7%), 0 1px 1.5px 0 rgb(0 0 0 / 5%);
+}
+
+
+
+
+
+
+.loginButton {
+    width: 100%;
+    color: #306178;
+    padding: 15px 25px;
+    background-color: #38D2D2;
+    background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25), inset 0px 3px 9px rgba(255, 255, 255, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.6), inset 0px -8px 36px rgba(0, 0, 0, 0.3), inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
+    border-radius: 14px;
+    font-weight: bold;
+    font-size: 22px;
+    border: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    cursor: pointer;
+}
+
+/*   Main Page CSS  Finish */
+
+
+
+/*Product Type Page CSS Start */
+
+.product-type {
+    background-color: white; /* Product Type  Main  Color */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    width: 100%;
+    height: auto;
+    margin: 10px;
+    gap: 50px;
+}
+
+    .product-type .menu-item {
+        background-color: #b7ded2; /* Product Type  Menu İtem  Color */
+        position: relative;
+        flex-basis: 550px;
+        text-align: left;
+        /* padding-top:2%; */
+        font-size: 20pt;
+        justify-content: left;
+        flex-grow: 1;
+        flex-shrink: 1;
+        border: outset;
+    }
+
+        .product-type .menu-item .item-table {
+            width: 100%;
+            height: auto;
+            border: none;
+            /* margin: 0 auto; */
+        }
+
+        .product-type .menu-item .item-table-button {
+            width: 100%;
+            height: auto;
+            border: none;
+            position: relative;
+        }
+
+.textBoxL {
+    Width: 650px;
+    border-radius: 5px;
+    border-color: none;
+    font-family: Arial;
+}
+
+
+.textBox {
+    width: 300px;
+    border-radius: 5px;
+    border-color: none;
+    font-family: Arial;
+}
+
+.textBoxM {
+    width: 200px;
+    border-radius: 5px;
+    border-color: none;
+    font-family: Arial;
+}
+
+.textBoxS {
+    width: 100px;
+    border-radius: 5px;
+    border-color: none;
+    font-family: Arial;
+}
+
+
+
+.textBoxXS {
+    width: 50px;
+    border-radius: 5px;
+    border-color: none;
+    font-family: Arial;
+}
+
+.textBoxUpDateS {
+    width: 70px;
+    border-radius: 5px;
+    border-color: none;
+    font-family: Arial;
+}
+
+
+
+
+.product-type .menu-item-datalist {
+    background-color: #b7ded2; /*GridWiev Gruop BackRound Color  */
+    position: relative;
+    flex-basis: 1080px;
+    text-align: left;
+    /* padding-top:2%; */
+    font-size: 20pt;
+    justify-content: left;
+    flex-grow: 1;
+    flex-shrink: 1;
+    border: outset;
+}
+
+
+    .product-type .menu-item-datalist .item-table-datalist {
+        border-collapse: collapse;
+        border: 3px solid black;
+        width: 100%;
+        min-width: 1045px;
+        table-layout: fixed;
+        border-left: 2px solid #A0A0A0;
+        border-right-style: solid;
+        border-right-width: 2px;
+        border-top: 2px solid #A0A0A0;
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+        background-color: #F0F0F0;
+        border: 2px solid;
+        inline-size: 100%;
+    }
+
+        .product-type .menu-item-datalist .item-table-datalist td {
+            border: 3px solid black;
+            width: 100%;
+            vertical-align: top;
+            font-size: 15pt;
+        }
+
+.product-type-modify-dropdown {
+    font-size: 20pt;
+    width: 300px;
+}
+
+
+
+
+
+
+
+
+/*Product Type Page CSS Finish */
+
+
+/*Produc Delete Page CSS Start  Note GridView and paging Css are Included */
+
+
+.product-type-gridview {
+    border-collapse: collapse;
+    /* Deneme amaçlı  */
+}
+
+    .product-type-gridview tr th {
+        padding: 8px;
+        color: black;
+        border: 1px solid black;
+        font-size: 13pt;
+    }
+
+    .product-type-gridview tr:nth-child(even) {
+        background-color: #daf8e3 /* Grid View Line Color Even  */
+    }
+
+    .product-type-gridview tr:nth-child(odd) {
+        background-color: white; /* Grid View Line Color Even  */
+    }
+
+    .product-type-gridview td {
+        border: 1px solid black;
+        padding: 8px;
+        font-size: 13pt;
+    }
+
+
+.product-type-gridviewS {
+    border-collapse: collapse;
+    /* Deneme amaçlı  */
+}
+
+    .product-type-gridviewS tr th {
+        padding: 5px;
+        color: black;
+        border: 1px solid black;
+        font-size: 13pt;
+    }
+
+    .product-type-gridviewS tr:nth-child(even) {
+        background-color: #daf8e3; /* Grid View Line Color Even  */
+    }
+
+    .product-type-gridviewS tr:nth-child(odd) {
+        background-color: white; /* Grid View Line Color Even  */
+    }
+
+    .product-type-gridviewS td {
+        border: 1px solid black;
+        padding: 5px;
+        font-size: 13pt;
+    }
+
+
+
+.paging {
+}
+
+    .paging a {
+        background-color: #00C157;
+        padding: 5px 7px;
+        text-decoration: none;
+        border: 1px solid #00C157;
+    }
+
+        .paging a:hover {
+            background-color: #E1FFEF;
+            color: #00C157;
+            border: 1px solid #00C157;
+        }
+
+    .paging span {
+        background-color: #E1FFEF;
+        padding: 5px 7px;
+        color: #00C157;
+        border: 1px solid #00C157;
+    }
+
+tr.paging {
+    background: none !important;
+}
+
+    tr.paging tr {
+        background: none !important;
+    }
+
+    tr.paging td {
+        border: none;
+    }
+
+
+/*Produc Delete Page CSS Finish  */
+
+
+.chosen-results {
+    font-size: 15pt;
+}
+
+
+
+.dataTables_wrapper {
+    /*overflow:scroll;*/
+    /* background-color: red; */
+    /*  width:100%; */
+    /* position: relative;
+    clear: both;
+    height: auto;
+    width: 100%;
+    overflow: scroll;*/
+    -webkit-overflow-scrolling: touch;
+}
+
+
+
+.valError {
+    font-size: 13pt;
+    color: red;
+    font-weight: bold;
+}
+
+
+.runButtonL {
+    Height: 30px;
+    Width: 300px;
+    Font-Size: 15pt;
+}
+
+
+.chart-container {
+    width: 100%;
+    /* max-width: 1200px; */ /* Set a maximum width if needed */
+    height: auto; /* Allow the height to adjust based on the chart content */
+    text-align: center; /* Center the chart container horizontally */
+}
+
+    .chart-container > div {
+        display: inline-block; /* Ensure the chart container shrinks to fit its content */
+    }
+
+
+
+
+    /*Product Type IMG Page CSS Start */
+
+.product-typeIMG-gridview {
+    border-collapse: collapse;
+    /* Deneme amaçlı  */
+}
+
+    .product-typeIMG-gridview tr th {
+        padding: 8px;
+        color: black;
+        border: 1px solid black;
+        font-size: 13pt;
+    }
+
+    .product-typeIMG-gridview tr:nth-child(even) {
+        background-color: #daf8e3 /* Grid View Line Color Even  */
+    }
+
+    .product-typeIMG-gridview tr:nth-child(odd) {
+        background-color: white; /* Grid View Line Color Even  */
+    }
+
+    .product-typeIMG-gridview td {
+        border: 1px solid black;
+        padding: 8px;
+        font-size: 13pt;
+       
+    }
+
+   
+

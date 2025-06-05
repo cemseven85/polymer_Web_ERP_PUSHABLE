@@ -1,0 +1,358 @@
+﻿body {
+    background-color: #fffafa;
+    padding: 0px;
+    border: none;
+    margin: auto;
+    font-family: 'Segoe UI';
+}
+
+
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #1d722a;
+    font-weight: bold;
+}
+
+
+
+.a_rowone > br {
+    content: "";
+    margin: 2em;
+    display: block;
+    font-size: 15%;
+}
+
+
+.m_qcontact {
+    background-color: darkgray;
+    font-size: 12pt;
+    text-align: right;
+}
+
+.m_header {
+    background-color: darkblue;
+    position: relative;
+}
+
+.h_image {
+    background-color: #ffffff;
+    position: relative;
+    max-width: auto;
+}
+
+    .h_image img {
+        display: flex;
+        background-color: darkorange;
+        width: 100%;
+        height: auto;
+    }
+
+
+
+.m_menu {
+    background-color: #fffafa;
+    display: flex;
+}
+
+    .m_menu table {
+        width: 100%;
+        height: auto;
+        font-size: 16pt;
+        text-align: center;
+        border: none;
+        position: relative; /*Deneme */
+        margin-top: 10px; /*Deneme */
+    }
+
+.m_space {
+    position: relative;
+    margin-top: 100px;
+}
+
+.m_container {
+    background-color: #fffafa;
+    margin: auto;
+}
+
+.m_footer {
+    position: relative;
+    display: flex;
+    background-color: #1d722a;
+    flex-wrap: wrap;
+}
+
+.f_image {
+    position: relative;
+    max-width: auto;
+    height: 130px;
+    flex-grow: 1;
+}
+
+    .f_image img { /*When we want to ceter an image horizantaly and vertivaly in an Div*/
+        background-color: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        max-width: 100%;
+        height: auto;
+    }
+
+
+.f_info {
+    position: relative;
+    max-width: auto;
+    height: 120px;
+    flex-grow: 1;
+}
+
+    .f_info h2 {
+        color: white;
+        font-size: 12pt;
+        margin: 0px;
+        font-weight: 100;
+    }
+
+.a_rowone {
+}
+
+
+
+.a_column {
+}
+
+
+    .a_column h1 {
+        text-align:center;
+        color: black;
+        width: 100%;
+        position: relative;
+        font-size: 22px;
+        font-weight: 300;
+        
+    }
+
+    .a_column h2 {
+        font-weight: 100;
+        text-align: center;
+        color: black;
+        width: 100%;
+        position: relative;
+        font-size: 22px;
+        font-weight: 300;
+        
+    }
+    
+
+
+    .a_column p {
+        text-align: center;
+        color: black;
+        width: 100%;
+        position: relative;
+        font-size: 22px;
+        font-weight: 300;
+    }
+
+.bolded {
+    font-weight: bold;
+}
+
+.a_column img {
+}
+
+
+.a_rowtwo {
+    display: flex; /* Responsive and Centered */
+    gap: 1rem;
+    padding: 1rem;
+    flex-wrap: wrap; /* Responsive and Centered */
+    align-items: center; /* Responsive and Centered */
+    margin-bottom: 50px;
+}
+
+.a_columnr2 {
+    flex-grow: 1; /* Responsive and Centered */
+    flex-basis: 240px; /* Responsive and Centered */
+}
+
+    .a_columnr2 img {
+        display: block; /* Responsive and Centered */
+        margin: auto; /*  Responsive and Centered */
+    }
+
+    .a_columnr2 p {
+        text-align: center;
+        color: black;
+        /* background-image: linear-gradient(45deg, forestgreen, lime); */
+        font-weight: 200;
+    }
+
+
+
+
+.a_rowthree {
+    display: flex;
+    align-items: center;
+}
+
+.a_columnr3 {
+    display: flex;
+    margin: auto;
+    position: relative;
+    text-align: center;
+    color: white;
+    font-size: 25pt;
+}
+
+    .a_columnr3 video {
+        display: flex;
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin-bottom: 50px;
+        /* margin: 100px; */
+    }
+
+
+.c_rowOne {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    gap: 30px;
+}
+
+    .c_rowOne > .c_columnOne {
+        width: 100%;
+        flex-grow: 1; /* Responsive and Centered */
+        flex-basis: 240px; /* Responsive and Centered */
+        text-align: left;
+        line-height: 90%;
+    }
+
+        .c_rowOne > .c_columnOne > .c_address {
+            max-width: 500px;
+            position: relative;
+            margin: auto;
+            font-size: 20pt;
+        }
+
+
+            .c_rowOne > .c_columnOne > .c_address > .c_table {
+                line-height: 22pt;
+            }
+
+
+    .c_rowOne > .c_columnTwo {
+        width: 100%;
+        flex-grow: 1; /* Responsive and Centered */
+        flex-basis: 240px; /* Responsive and Centered */
+
+        position: relative;
+    }
+
+
+
+
+        .c_rowOne > .c_columnTwo > .c_map {
+            width: 80%;
+            height: 90%;
+            max-width: 650px;
+            max-height: 450px;
+            position: relative;
+            display: block;
+            margin: auto;
+            border: hidden;
+        }
+
+
+.p_aplicationHeader {
+    text-align: center;
+    margin-top: 100px;
+    color: #1d722a;
+   font-size:20px;
+}
+
+
+
+.p_rowOne {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.p_product {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    flex-grow: 1;
+    flex-basis: 350px;
+}
+
+
+.p_rowTwo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.p_aplications {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    flex-grow: 1;
+    flex-basis: 100px;
+}
+
+.q_rowOne {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.q_productionSteps {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    flex-grow: 1;
+    flex-basis: 300px;
+    margin-bottom: 100px;
+}
+
+.q_rowTwo {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.q_certification {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    flex-grow: 1;
+    flex-basis: 300px;
+    margin-bottom: 100px;
+}
+
+/*  .a_columnr3 h2 {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+ */

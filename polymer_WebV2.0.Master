@@ -1,0 +1,87 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="polymer_WebV2.0.master.cs" Inherits="polymer_Web_ERP_V4.polymer_WebV2__0" %>
+
+<!DOCTYPE html>
+
+<html lang="en-us">
+<head runat="server">
+    <title>Recycling</title>
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    
+    <meta content="minimum-scale=1.0, width=device-width, initial-scale=1" name="viewport">
+    <meta charset="utf-8">
+    <meta name="description" content="4 Polymer is recycling post-consumer plastics.4 Polymer is producing recycled LDPE granules.">
+    <link href="Content/StyleSheet1.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="../images/shorCut-icon1.png">
+    <meta name="og:title" content="Recycling">
+    <meta name="og:description" content="4 Polymer is recycling post-consumer plastics.4 Polymer is producing recycled LDPE granules.">
+
+</head>
+<body>
+    <form id="master_form" runat="server">
+        <div class="m_qcontact">
+            <p>info@4polymer.com | +35 88 884 84 22</p>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/BusinessLayer/main-ERP.aspx">LYAS Connection</asp:HyperLink>
+        </div>
+        <div class="m_header">
+            <div class="h_image">
+                <img src="../images/header2.png" alt="Sample Photo" />
+            </div>
+        </div>
+        <div class="m_menu">
+
+            <table align="center" class="m_table">
+                <tr>
+                    <td><a href="Home.aspx">Home</a></td>
+                    <td><a href="Products.aspx">Products</a></td>
+                    <td><a href="Quality.aspx">Quality</a></td>
+                    <td><a href="Contact.aspx">Contact</a></td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="m_space">
+        </div>
+
+        <div class="m_container">
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+        </div>
+        <div class="m_footer">
+            <div class="f_info">
+                <h2>4 Polymer LTD.</h2>
+                <h2>Parvomai , ul. Omurtag No:2</h2>
+                <h2>Plovdiv</h2>
+                <h2>info@4polymer.com</h2>
+                <h2>+359 03 313 8512</h2>
+            </div>
+
+            <div class="f_image">
+                <img src="../images/ReachLogo.png" alt="Sample Photo" />
+            </div>
+
+            <div class="f_image">
+                <a href="https://www.eucertplast.eu/">
+                    <img src="../images/EuroCerPlastLogo.png" alt="Sample Photo" />
+                </a>
+            </div>
+
+            <!-- 
+             <div class="f_image">               
+                  <img src="../images/IsoLogo1.png" alt="Sample Photo" />
+            </div>
+             <div class="f_image">               
+                  <img src="../images/IsoLogo2.png" alt="Sample Photo" />   
+            </div>
+               -->
+            <div class="f_image">
+                <img src="../images/4polymerLogo2.png" alt="Sample Photo" />
+            </div>
+        </div>
+    </form>
+</body>
+</html>

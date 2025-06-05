@@ -1,0 +1,24 @@
+# Ignore Visual Studio system files
+.vs/
+*.user
+*.suo
+
+# Ignore build outputs
+bin/
+obj/
+*.exe
+*.dll
+
+# Ignore GitHub Copilot + IntelliSense databases
+*.db
+*.db-shm
+*.db-wal
+*.vsidx
+
+# Ignore other temp/config/cache files
+*.log
+*.bak
+*.pidb
+*.cache
+*.tmp
+

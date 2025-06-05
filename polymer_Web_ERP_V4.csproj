@@ -1,0 +1,1378 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6D9BB47E-CB20-4F43-885D-137F57F96A51}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>polymer_Web_ERP_V4</RootNamespace>
+    <AssemblyName>polymer_Web_ERP_V4</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44390</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=7.0.9.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.7.0.9\lib\net462\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.Interfaces.6.1.1\lib\net462\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=6.1.1.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.System.Drawing.6.1.1\lib\net462\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IO.RecyclableMemoryStream.3.0.0\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BusinessLayer\Accounting\accountingSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Accounting\addProgressPayment-ERP.aspx" />
+    <Content Include="BusinessLayer\Accounting\addTxn-ERP.aspx" />
+    <Content Include="BusinessLayer\Accounting\addTxnDetail-ERP.aspx" />
+    <Content Include="BusinessLayer\Accounting\deleteProgressPayment-ERP.aspx" />
+    <Content Include="BusinessLayer\Accounting\deleteTxn-ERP.aspx" />
+    <Content Include="BusinessLayer\Accounting\deleteTxnDetail-ERP.aspx" />
+    <Content Include="BusinessLayer\Accounting\editProgressPayment-ERP.aspx" />
+    <Content Include="BusinessLayer\Accounting\editTxn-ERP.aspx" />
+    <Content Include="BusinessLayer\Accounting\editTxnDetail-ERP.aspx" />
+    <Content Include="BusinessLayer\Accounting\listProgressPayment-ERP.aspx" />
+    <Content Include="BusinessLayer\Accounting\listTxn-ERP.aspx" />
+    <Content Include="BusinessLayer\Accounting\listTxnDetail-ERP.aspx" />
+    <Content Include="BusinessLayer\Accounting\progressSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Accounting\txnDetailSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Accounting\txnSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Employee\addEmployee-ERP.aspx" />
+    <Content Include="BusinessLayer\Employee\deleteEmployee-ERP.aspx" />
+    <Content Include="BusinessLayer\Employee\editEmployee-ERP.aspx" />
+    <Content Include="BusinessLayer\Employee\employeeSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Employee\listEmployee-ERP.aspx" />
+    <Content Include="BusinessLayer\main-ERP.aspx" />
+    <Content Include="BusinessLayer\Maintenance\addMachine.aspx" />
+    <Content Include="BusinessLayer\Maintenance\addPartGroup.aspx" />
+    <Content Include="BusinessLayer\Maintenance\addPartType.aspx" />
+    <Content Include="BusinessLayer\Maintenance\deleteEditMachine.aspx" />
+    <Content Include="BusinessLayer\Maintenance\deleteEditMachineGroup.aspx" />
+    <Content Include="BusinessLayer\Maintenance\deleteEditPartGroup.aspx" />
+    <Content Include="BusinessLayer\Maintenance\deleteEditPartType.aspx" />
+    <Content Include="BusinessLayer\Maintenance\listMachine.aspx" />
+    <Content Include="BusinessLayer\Maintenance\listMachineGroup.aspx" />
+    <Content Include="BusinessLayer\Maintenance\listPart.aspx" />
+    <Content Include="BusinessLayer\Maintenance\listPartDDL.aspx" />
+    <Content Include="BusinessLayer\Maintenance\listPartDLLM.aspx" />
+    <Content Include="BusinessLayer\Maintenance\listPartGroup.aspx" />
+    <Content Include="BusinessLayer\Maintenance\listPartType.aspx" />
+    <Content Include="BusinessLayer\Maintenance\partImgModule.aspx" />
+    <Content Include="BusinessLayer\Maintenance\partModul.aspx" />
+    <Content Include="BusinessLayer\Maintenance\partModulWImg.aspx" />
+    <Content Include="BusinessLayer\Monitor\temperatureMonitoring.aspx" />
+    <Content Include="BusinessLayer\Production\addGProduction-ERP.aspx" />
+    <Content Include="BusinessLayer\Production\addWProduction-ERP.aspx" />
+    <Content Include="BusinessLayer\Production\deleteGProduction-ERP.aspx" />
+    <Content Include="BusinessLayer\Production\deleteWProduction-ERP.aspx" />
+    <Content Include="BusinessLayer\Production\editGProduction-ERP.aspx" />
+    <Content Include="BusinessLayer\Production\editWProduction-ERP.aspx" />
+    <Content Include="BusinessLayer\Production\granuleSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Production\listGProduction-ERP.aspx" />
+    <Content Include="BusinessLayer\Production\listWProduction-ERP.aspx" />
+    <Content Include="BusinessLayer\Production\productionSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Production\washingSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Product\addPrdGroup-ERP.aspx" />
+    <Content Include="BusinessLayer\Product\addProduct-ERP.aspx" />
+    <Content Include="BusinessLayer\Product\deletePrdGroup-ERP.aspx" />
+    <Content Include="BusinessLayer\Product\deleteProduct-ERP.aspx" />
+    <Content Include="BusinessLayer\Product\edditPrdGroup-ERP.aspx" />
+    <Content Include="BusinessLayer\Product\editProduct-ERP.aspx" />
+    <Content Include="BusinessLayer\Product\listPrdGroup-ERP.aspx" />
+    <Content Include="BusinessLayer\Product\listProducts-ERP.aspx" />
+    <Content Include="BusinessLayer\Product\listProductType-ERP.aspx" />
+    <Content Include="BusinessLayer\Product\prdGroupSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Product\prdSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Product\productSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Product\productType-ERP.aspx" />
+    <Content Include="BusinessLayer\Product\productTypeDelete-ERP.aspx" />
+    <Content Include="BusinessLayer\Product\productTypeModify-ERP.aspx" />
+    <Content Include="BusinessLayer\Product\productTypeSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Purchase\addPurchase-ERP.aspx" />
+    <Content Include="BusinessLayer\Purchase\addSeller-ERP.aspx" />
+    <Content Include="BusinessLayer\Purchase\addSellerGroup-ERP.aspx" />
+    <Content Include="BusinessLayer\Purchase\deletePurchase-ERP.aspx" />
+    <Content Include="BusinessLayer\Purchase\deleteSeller-ERP.aspx" />
+    <Content Include="BusinessLayer\Purchase\deleteSellerGroup-ERP.aspx" />
+    <Content Include="BusinessLayer\Purchase\editPurchase-ERP.aspx" />
+    <Content Include="BusinessLayer\Purchase\editSeller-ERP.aspx" />
+    <Content Include="BusinessLayer\Purchase\editSellerGroup-ERP.aspx" />
+    <Content Include="BusinessLayer\Purchase\listPurchase-ERP.aspx" />
+    <Content Include="BusinessLayer\Purchase\listSeller-ERP.aspx" />
+    <Content Include="BusinessLayer\Purchase\listSellerGroup-ERP.aspx" />
+    <Content Include="BusinessLayer\Purchase\purchaseItemSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Purchase\purchaseSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Purchase\sellerGrpSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Purchase\sellerSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Reports\currentAccountStatement.aspx" />
+    <Content Include="BusinessLayer\Reports\dailyGranuleProduction.aspx" />
+    <Content Include="BusinessLayer\Reports\euCertReports-ERP.aspx" />
+    <Content Include="BusinessLayer\Reports\productivityReports-ERP.aspx" />
+    <Content Include="BusinessLayer\Reports\reportsSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\addCustomer-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\addCustomerGroup-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\addInvoice-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\addShipment-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\customerGrpSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\customerSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\deleteCustomer-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\deleteCustomerGroup-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\deleteInvoice-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\deleteShipment-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\editCustomer-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\editCustomerGroup-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\editInvoice-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\editShippment-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\invoiceShipTrace-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\invoiceSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\listCustomer-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\listCustomerGroup-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\listInvoice-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\listShipment-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\salesSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\sellSubMenu-ERP.aspx" />
+    <Content Include="BusinessLayer\Sales\shipmentSubMenu-ERP.aspx" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\Styles.css" />
+    <Content Include="Content\StyleSheet-ERPV2.0.css" />
+    <Content Include="Content\StyleSheet1.css" />
+    <Content Include="DataAccessLayer\ReceiveData.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Exceptions\HttpUnhandledException.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="images\4GD.mov" />
+    <Content Include="images\4polymerLogo.png" />
+    <Content Include="images\4polymerLogo2.png" />
+    <Content Include="images\addInvoice.png" />
+    <Content Include="images\addItem.png" />
+    <Content Include="images\addProgress.png" />
+    <Content Include="images\address-icon.png" />
+    <Content Include="images\address-icon1.png" />
+    <Content Include="images\addShippment.png" />
+    <Content Include="images\agricultural-films-icon.png" />
+    <Content Include="images\backarrow.png" />
+    <Content Include="images\baled-LDPE.jpg" />
+    <Content Include="images\black.png" />
+    <Content Include="images\bubble-film-icon.png" />
+    <Content Include="images\bulgaria-flag.jpg" />
+    <Content Include="images\bulgaria-flag.png" />
+    <Content Include="images\bulgaria-flag1.png" />
+    <Content Include="images\cable-insulation-icon.png" />
+    <Content Include="images\cacelShippment.png" />
+    <Content Include="images\cancelTxn.png" />
+    <Content Include="images\cash-machine.png" />
+    <Content Include="images\construction-foil-icon.png" />
+    <Content Include="images\customer.png" />
+    <Content Include="images\deleteInvoice.png" />
+    <Content Include="images\deleteItem.png" />
+    <Content Include="images\deleteProgress.png" />
+    <Content Include="images\editInvoice.png" />
+    <Content Include="images\editItem.png" />
+    <Content Include="images\editProgress.png" />
+    <Content Include="images\employeePanel.png" />
+    <Content Include="images\english-flag.png" />
+    <Content Include="images\english-flag1.png" />
+    <Content Include="images\eucertPlast.png" />
+    <Content Include="images\EuroCerPlastLogo.png" />
+    <Content Include="images\euroCertPlast.png" />
+    <Content Include="images\extruder.png" />
+    <Content Include="images\extrusion.jpg" />
+    <Content Include="images\faultPanel.png" />
+    <Content Include="images\flexible-packaging-icon.png" />
+    <Content Include="images\forkliftIcon.png" />
+    <Content Include="images\granuleBlack.JPG" />
+    <Content Include="images\granuleHoney.JPG" />
+    <Content Include="images\granuleNatural.JPG" />
+    <Content Include="images\granuleSemiNatural.JPG" />
+    <Content Include="images\gras-pavers-icon.png" />
+    <Content Include="images\header1.png" />
+    <Content Include="images\header2.png" />
+    <Content Include="images\header3.png" />
+    <Content Include="images\homearrow.png" />
+    <Content Include="images\image2.png" />
+    <Content Include="images\image21.png" />
+    <Content Include="images\image22.JPG" />
+    <Content Include="images\image22.png" />
+    <Content Include="images\image3.png" />
+    <Content Include="images\image4.png" />
+    <Content Include="images\injection-molding-icon.png" />
+    <Content Include="images\invoice.png" />
+    <Content Include="images\isoBig1.png" />
+    <Content Include="images\isoBig2.png" />
+    <Content Include="images\IsoLogo1.png" />
+    <Content Include="images\IsoLogo2.png" />
+    <Content Include="images\listItem.png" />
+    <Content Include="images\listProgress.png" />
+    <Content Include="images\logout.png" />
+    <Content Include="images\lose-weight.png" />
+    <Content Include="images\mail-icon.png" />
+    <Content Include="images\mail-icon1.png" />
+    <Content Include="images\mobile-icon.png" />
+    <Content Include="images\mobile-icon1.png" />
+    <Content Include="images\natural.png" />
+    <Content Include="images\pipes-icon.png" />
+    <Content Include="images\plastic-bag-icon.png" />
+    <Content Include="images\productGroupIcon.png" />
+    <Content Include="images\productIcon.png" />
+    <Content Include="images\productionPanel.png" />
+    <Content Include="images\productPanel.png" />
+    <Content Include="images\productTypeIcon.png" />
+    <Content Include="images\progressSubMenu.png" />
+    <Content Include="images\purchaseIcon.png" />
+    <Content Include="images\purchasePanel.png" />
+    <Content Include="images\reachBig.jpg" />
+    <Content Include="images\reachBig2.png" />
+    <Content Include="images\ReachLogo.png" />
+    <Content Include="images\recycleLogo.png" />
+    <Content Include="images\recycleLogo2.png" />
+    <Content Include="images\reportPanel.png" />
+    <Content Include="images\requestPanel.png" />
+    <Content Include="images\salesPanel.png" />
+    <Content Include="images\scrap.png" />
+    <Content Include="images\scrap2.jpg" />
+    <Content Include="images\scrap2_1.jpg" />
+    <Content Include="images\sell.png" />
+    <Content Include="images\sellerIcon.png" />
+    <Content Include="images\shipment.png" />
+    <Content Include="images\shorCut-icon.png" />
+    <Content Include="images\shorCut-icon1.png" />
+    <Content Include="images\shreddering.jpg" />
+    <Content Include="images\shredder_Icon.png" />
+    <Content Include="images\sortIcon.png" />
+    <Content Include="images\sorting1.JPG" />
+    <Content Include="images\sorting2.JPG" />
+    <Content Include="images\sort_Icon.png" />
+    <Content Include="images\stockPanel.png" />
+    <Content Include="images\transaction.png" />
+    <Content Include="images\transactionSubMenu.png" />
+    <Content Include="images\trash-bags.png" />
+    <Content Include="images\turkey-flagt.png" />
+    <Content Include="images\txnList.png" />
+    <Content Include="images\unLoadItemr.png" />
+    <Content Include="images\userSettings.png" />
+    <Content Include="images\wageSubMenu.png" />
+    <Content Include="images\washing.JPG" />
+    <Content Include="images\washingIcon.png" />
+    <Content Include="images\wasteCodeIcon.png" />
+    <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="BusinessLayer\Maintenance\addMachineGroup.aspx" />
+    <Content Include="Membership\AdditionalUserInfo.aspx" />
+    <Content Include="Membership\CreatingUserAccounts.aspx" />
+    <Content Include="Membership\DeleteUserAccounts.aspx" />
+    <Content Include="Membership\EnhancedCreateUserWizard.aspx" />
+    <Content Include="Membership\Guestbook.aspx" />
+    <Content Include="Membership\ResetUserPassword.aspx" />
+    <Content Include="Membership\UserBasedAuthorization.aspx" />
+    <Content Include="Roles\CreateUserWizardWithRoles.aspx" />
+    <Content Include="Roles\ManageRoles.aspx" />
+    <Content Include="Roles\RoleBasedAuthorization.aspx" />
+    <Content Include="Roles\UsersAndRoles.aspx" />
+    <Content Include="Exceptions\UnauthorizedAccess.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Contact.aspx" />
+    <Content Include="Home.aspx" />
+    <Content Include="Products.aspx" />
+    <Content Include="Quality.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessLayer\Accounting\accountingSubMenu-ERP.aspx.cs">
+      <DependentUpon>accountingSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\accountingSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>accountingSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\addProgressPayment-ERP.aspx.cs">
+      <DependentUpon>addProgressPayment-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\addProgressPayment-ERP.aspx.designer.cs">
+      <DependentUpon>addProgressPayment-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\addTxn-ERP.aspx.cs">
+      <DependentUpon>addTxn-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\addTxn-ERP.aspx.designer.cs">
+      <DependentUpon>addTxn-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\addTxnDetail-ERP.aspx.cs">
+      <DependentUpon>addTxnDetail-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\addTxnDetail-ERP.aspx.designer.cs">
+      <DependentUpon>addTxnDetail-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\deleteProgressPayment-ERP.aspx.cs">
+      <DependentUpon>deleteProgressPayment-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\deleteProgressPayment-ERP.aspx.designer.cs">
+      <DependentUpon>deleteProgressPayment-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\deleteTxn-ERP.aspx.cs">
+      <DependentUpon>deleteTxn-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\deleteTxn-ERP.aspx.designer.cs">
+      <DependentUpon>deleteTxn-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\deleteTxnDetail-ERP.aspx.cs">
+      <DependentUpon>deleteTxnDetail-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\deleteTxnDetail-ERP.aspx.designer.cs">
+      <DependentUpon>deleteTxnDetail-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\editProgressPayment-ERP.aspx.cs">
+      <DependentUpon>editProgressPayment-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\editProgressPayment-ERP.aspx.designer.cs">
+      <DependentUpon>editProgressPayment-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\editTxn-ERP.aspx.cs">
+      <DependentUpon>editTxn-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\editTxn-ERP.aspx.designer.cs">
+      <DependentUpon>editTxn-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\editTxnDetail-ERP.aspx.cs">
+      <DependentUpon>editTxnDetail-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\editTxnDetail-ERP.aspx.designer.cs">
+      <DependentUpon>editTxnDetail-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\listProgressPayment-ERP.aspx.cs">
+      <DependentUpon>listProgressPayment-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\listProgressPayment-ERP.aspx.designer.cs">
+      <DependentUpon>listProgressPayment-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\listTxn-ERP.aspx.cs">
+      <DependentUpon>listTxn-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\listTxn-ERP.aspx.designer.cs">
+      <DependentUpon>listTxn-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\listTxnDetail-ERP.aspx.cs">
+      <DependentUpon>listTxnDetail-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\listTxnDetail-ERP.aspx.designer.cs">
+      <DependentUpon>listTxnDetail-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\progressSubMenu-ERP.aspx.cs">
+      <DependentUpon>progressSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\progressSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>progressSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\txnDetailSubMenu-ERP.aspx.cs">
+      <DependentUpon>txnDetailSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\txnDetailSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>txnDetailSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\txnSubMenu-ERP.aspx.cs">
+      <DependentUpon>txnSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Accounting\txnSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>txnSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Employee\addEmployee-ERP.aspx.cs">
+      <DependentUpon>addEmployee-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Employee\addEmployee-ERP.aspx.designer.cs">
+      <DependentUpon>addEmployee-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Employee\deleteEmployee-ERP.aspx.cs">
+      <DependentUpon>deleteEmployee-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Employee\deleteEmployee-ERP.aspx.designer.cs">
+      <DependentUpon>deleteEmployee-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Employee\editEmployee-ERP.aspx.cs">
+      <DependentUpon>editEmployee-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Employee\editEmployee-ERP.aspx.designer.cs">
+      <DependentUpon>editEmployee-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Employee\employeeSubMenu-ERP.aspx.cs">
+      <DependentUpon>employeeSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Employee\employeeSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>employeeSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Employee\listEmployee-ERP.aspx.cs">
+      <DependentUpon>listEmployee-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Employee\listEmployee-ERP.aspx.designer.cs">
+      <DependentUpon>listEmployee-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\main-ERP.aspx.cs">
+      <DependentUpon>main-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\main-ERP.aspx.designer.cs">
+      <DependentUpon>main-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\addMachine.aspx.cs">
+      <DependentUpon>addMachine.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\addMachine.aspx.designer.cs">
+      <DependentUpon>addMachine.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\addPartGroup.aspx.cs">
+      <DependentUpon>addPartGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\addPartGroup.aspx.designer.cs">
+      <DependentUpon>addPartGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\addPartType.aspx.cs">
+      <DependentUpon>addPartType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\addPartType.aspx.designer.cs">
+      <DependentUpon>addPartType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\deleteEditMachine.aspx.cs">
+      <DependentUpon>deleteEditMachine.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\deleteEditMachine.aspx.designer.cs">
+      <DependentUpon>deleteEditMachine.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\deleteEditMachineGroup.aspx.cs">
+      <DependentUpon>deleteEditMachineGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\deleteEditMachineGroup.aspx.designer.cs">
+      <DependentUpon>deleteEditMachineGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\deleteEditPartGroup.aspx.cs">
+      <DependentUpon>deleteEditPartGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\deleteEditPartGroup.aspx.designer.cs">
+      <DependentUpon>deleteEditPartGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\deleteEditPartType.aspx.cs">
+      <DependentUpon>deleteEditPartType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\deleteEditPartType.aspx.designer.cs">
+      <DependentUpon>deleteEditPartType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\listMachine.aspx.cs">
+      <DependentUpon>listMachine.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\listMachine.aspx.designer.cs">
+      <DependentUpon>listMachine.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\listMachineGroup.aspx.cs">
+      <DependentUpon>listMachineGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\listMachineGroup.aspx.designer.cs">
+      <DependentUpon>listMachineGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\listPart.aspx.cs">
+      <DependentUpon>listPart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\listPart.aspx.designer.cs">
+      <DependentUpon>listPart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\listPartDDL.aspx.cs">
+      <DependentUpon>listPartDDL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\listPartDDL.aspx.designer.cs">
+      <DependentUpon>listPartDDL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\listPartDLLM.aspx.cs">
+      <DependentUpon>listPartDLLM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\listPartDLLM.aspx.designer.cs">
+      <DependentUpon>listPartDLLM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\listPartGroup.aspx.cs">
+      <DependentUpon>listPartGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\listPartGroup.aspx.designer.cs">
+      <DependentUpon>listPartGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\listPartType.aspx.cs">
+      <DependentUpon>listPartType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\listPartType.aspx.designer.cs">
+      <DependentUpon>listPartType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\partImgModule.aspx.cs">
+      <DependentUpon>partImgModule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\partImgModule.aspx.designer.cs">
+      <DependentUpon>partImgModule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\partModul.aspx.cs">
+      <DependentUpon>partModul.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\partModul.aspx.designer.cs">
+      <DependentUpon>partModul.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\partModulWImg.aspx.cs">
+      <DependentUpon>partModulWImg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\partModulWImg.aspx.designer.cs">
+      <DependentUpon>partModulWImg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Monitor\temperatureMonitoring.aspx.cs">
+      <DependentUpon>temperatureMonitoring.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Monitor\temperatureMonitoring.aspx.designer.cs">
+      <DependentUpon>temperatureMonitoring.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\addGProduction-ERP.aspx.cs">
+      <DependentUpon>addGProduction-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\addGProduction-ERP.aspx.designer.cs">
+      <DependentUpon>addGProduction-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\addWProduction-ERP.aspx.cs">
+      <DependentUpon>addWProduction-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\addWProduction-ERP.aspx.designer.cs">
+      <DependentUpon>addWProduction-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\deleteGProduction-ERP.aspx.cs">
+      <DependentUpon>deleteGProduction-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\deleteGProduction-ERP.aspx.designer.cs">
+      <DependentUpon>deleteGProduction-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\deleteWProduction-ERP.aspx.cs">
+      <DependentUpon>deleteWProduction-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\deleteWProduction-ERP.aspx.designer.cs">
+      <DependentUpon>deleteWProduction-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\editGProduction-ERP.aspx.cs">
+      <DependentUpon>editGProduction-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\editGProduction-ERP.aspx.designer.cs">
+      <DependentUpon>editGProduction-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\editWProduction-ERP.aspx.cs">
+      <DependentUpon>editWProduction-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\editWProduction-ERP.aspx.designer.cs">
+      <DependentUpon>editWProduction-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\granuleSubMenu-ERP.aspx.cs">
+      <DependentUpon>granuleSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\granuleSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>granuleSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\listGProduction-ERP.aspx.cs">
+      <DependentUpon>listGProduction-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\listGProduction-ERP.aspx.designer.cs">
+      <DependentUpon>listGProduction-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\listWProduction-ERP.aspx.cs">
+      <DependentUpon>listWProduction-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\listWProduction-ERP.aspx.designer.cs">
+      <DependentUpon>listWProduction-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\productionSubMenu-ERP.aspx.cs">
+      <DependentUpon>productionSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\productionSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>productionSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\washingSubMenu-ERP.aspx.cs">
+      <DependentUpon>washingSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Production\washingSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>washingSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\addPrdGroup-ERP.aspx.cs">
+      <DependentUpon>addPrdGroup-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\addPrdGroup-ERP.aspx.designer.cs">
+      <DependentUpon>addPrdGroup-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\addProduct-ERP.aspx.cs">
+      <DependentUpon>addProduct-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\addProduct-ERP.aspx.designer.cs">
+      <DependentUpon>addProduct-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\deletePrdGroup-ERP.aspx.cs">
+      <DependentUpon>deletePrdGroup-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\deletePrdGroup-ERP.aspx.designer.cs">
+      <DependentUpon>deletePrdGroup-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\deleteProduct-ERP.aspx.cs">
+      <DependentUpon>deleteProduct-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\deleteProduct-ERP.aspx.designer.cs">
+      <DependentUpon>deleteProduct-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\edditPrdGroup-ERP.aspx.cs">
+      <DependentUpon>edditPrdGroup-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\edditPrdGroup-ERP.aspx.designer.cs">
+      <DependentUpon>edditPrdGroup-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\editProduct-ERP.aspx.cs">
+      <DependentUpon>editProduct-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\editProduct-ERP.aspx.designer.cs">
+      <DependentUpon>editProduct-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\listPrdGroup-ERP.aspx.cs">
+      <DependentUpon>listPrdGroup-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\listPrdGroup-ERP.aspx.designer.cs">
+      <DependentUpon>listPrdGroup-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\listProducts-ERP.aspx.cs">
+      <DependentUpon>listProducts-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\listProducts-ERP.aspx.designer.cs">
+      <DependentUpon>listProducts-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\listProductType-ERP.aspx.cs">
+      <DependentUpon>listProductType-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\listProductType-ERP.aspx.designer.cs">
+      <DependentUpon>listProductType-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\prdGroupSubMenu-ERP.aspx.cs">
+      <DependentUpon>prdGroupSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\prdGroupSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>prdGroupSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\prdSubMenu-ERP.aspx.cs">
+      <DependentUpon>prdSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\prdSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>prdSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\productSubMenu-ERP.aspx.cs">
+      <DependentUpon>productSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\productSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>productSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\productType-ERP.aspx.cs">
+      <DependentUpon>productType-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\productType-ERP.aspx.designer.cs">
+      <DependentUpon>productType-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\productTypeDelete-ERP.aspx.cs">
+      <DependentUpon>productTypeDelete-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\productTypeDelete-ERP.aspx.designer.cs">
+      <DependentUpon>productTypeDelete-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\productTypeModify-ERP.aspx.cs">
+      <DependentUpon>productTypeModify-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\productTypeModify-ERP.aspx.designer.cs">
+      <DependentUpon>productTypeModify-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\productTypeSubMenu-ERP.aspx.cs">
+      <DependentUpon>productTypeSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Product\productTypeSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>productTypeSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\addPurchase-ERP.aspx.cs">
+      <DependentUpon>addPurchase-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\addPurchase-ERP.aspx.designer.cs">
+      <DependentUpon>addPurchase-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\addSeller-ERP.aspx.cs">
+      <DependentUpon>addSeller-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\addSeller-ERP.aspx.designer.cs">
+      <DependentUpon>addSeller-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\addSellerGroup-ERP.aspx.cs">
+      <DependentUpon>addSellerGroup-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\addSellerGroup-ERP.aspx.designer.cs">
+      <DependentUpon>addSellerGroup-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\deletePurchase-ERP.aspx.cs">
+      <DependentUpon>deletePurchase-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\deletePurchase-ERP.aspx.designer.cs">
+      <DependentUpon>deletePurchase-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\deleteSeller-ERP.aspx.cs">
+      <DependentUpon>deleteSeller-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\deleteSeller-ERP.aspx.designer.cs">
+      <DependentUpon>deleteSeller-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\deleteSellerGroup-ERP.aspx.cs">
+      <DependentUpon>deleteSellerGroup-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\deleteSellerGroup-ERP.aspx.designer.cs">
+      <DependentUpon>deleteSellerGroup-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\editPurchase-ERP.aspx.cs">
+      <DependentUpon>editPurchase-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\editPurchase-ERP.aspx.designer.cs">
+      <DependentUpon>editPurchase-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\editSeller-ERP.aspx.cs">
+      <DependentUpon>editSeller-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\editSeller-ERP.aspx.designer.cs">
+      <DependentUpon>editSeller-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\editSellerGroup-ERP.aspx.cs">
+      <DependentUpon>editSellerGroup-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\editSellerGroup-ERP.aspx.designer.cs">
+      <DependentUpon>editSellerGroup-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\listPurchase-ERP.aspx.cs">
+      <DependentUpon>listPurchase-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\listPurchase-ERP.aspx.designer.cs">
+      <DependentUpon>listPurchase-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\listSeller-ERP.aspx.cs">
+      <DependentUpon>listSeller-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\listSeller-ERP.aspx.designer.cs">
+      <DependentUpon>listSeller-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\listSellerGroup-ERP.aspx.cs">
+      <DependentUpon>listSellerGroup-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\listSellerGroup-ERP.aspx.designer.cs">
+      <DependentUpon>listSellerGroup-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\purchaseItemSubMenu-ERP.aspx.cs">
+      <DependentUpon>purchaseItemSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\purchaseItemSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>purchaseItemSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\purchaseSubMenu-ERP.aspx.cs">
+      <DependentUpon>purchaseSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\purchaseSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>purchaseSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\sellerGrpSubMenu-ERP.aspx.cs">
+      <DependentUpon>sellerGrpSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\sellerGrpSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>sellerGrpSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\sellerSubMenu-ERP.aspx.cs">
+      <DependentUpon>sellerSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Purchase\sellerSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>sellerSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Reports\currentAccountStatement.aspx.cs">
+      <DependentUpon>currentAccountStatement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Reports\currentAccountStatement.aspx.designer.cs">
+      <DependentUpon>currentAccountStatement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Reports\dailyGranuleProduction.aspx.cs">
+      <DependentUpon>dailyGranuleProduction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Reports\dailyGranuleProduction.aspx.designer.cs">
+      <DependentUpon>dailyGranuleProduction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Reports\euCertReports-ERP.aspx.cs">
+      <DependentUpon>euCertReports-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Reports\euCertReports-ERP.aspx.designer.cs">
+      <DependentUpon>euCertReports-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Reports\productivityReports-ERP.aspx.cs">
+      <DependentUpon>productivityReports-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Reports\productivityReports-ERP.aspx.designer.cs">
+      <DependentUpon>productivityReports-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Reports\reportsSubMenu-ERP.aspx.cs">
+      <DependentUpon>reportsSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Reports\reportsSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>reportsSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\addCustomer-ERP.aspx.cs">
+      <DependentUpon>addCustomer-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\addCustomer-ERP.aspx.designer.cs">
+      <DependentUpon>addCustomer-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\addCustomerGroup-ERP.aspx.cs">
+      <DependentUpon>addCustomerGroup-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\addCustomerGroup-ERP.aspx.designer.cs">
+      <DependentUpon>addCustomerGroup-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\addInvoice-ERP.aspx.cs">
+      <DependentUpon>addInvoice-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\addInvoice-ERP.aspx.designer.cs">
+      <DependentUpon>addInvoice-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\addShipment-ERP.aspx.cs">
+      <DependentUpon>addShipment-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\addShipment-ERP.aspx.designer.cs">
+      <DependentUpon>addShipment-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\customerGrpSubMenu-ERP.aspx.cs">
+      <DependentUpon>customerGrpSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\customerGrpSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>customerGrpSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\customerSubMenu-ERP.aspx.cs">
+      <DependentUpon>customerSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\customerSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>customerSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\deleteCustomer-ERP.aspx.cs">
+      <DependentUpon>deleteCustomer-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\deleteCustomer-ERP.aspx.designer.cs">
+      <DependentUpon>deleteCustomer-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\deleteCustomerGroup-ERP.aspx.cs">
+      <DependentUpon>deleteCustomerGroup-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\deleteCustomerGroup-ERP.aspx.designer.cs">
+      <DependentUpon>deleteCustomerGroup-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\deleteInvoice-ERP.aspx.cs">
+      <DependentUpon>deleteInvoice-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\deleteInvoice-ERP.aspx.designer.cs">
+      <DependentUpon>deleteInvoice-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\deleteShipment-ERP.aspx.cs">
+      <DependentUpon>deleteShipment-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\deleteShipment-ERP.aspx.designer.cs">
+      <DependentUpon>deleteShipment-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\editCustomer-ERP.aspx.cs">
+      <DependentUpon>editCustomer-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\editCustomer-ERP.aspx.designer.cs">
+      <DependentUpon>editCustomer-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\editCustomerGroup-ERP.aspx.cs">
+      <DependentUpon>editCustomerGroup-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\editCustomerGroup-ERP.aspx.designer.cs">
+      <DependentUpon>editCustomerGroup-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\editInvoice-ERP.aspx.cs">
+      <DependentUpon>editInvoice-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\editInvoice-ERP.aspx.designer.cs">
+      <DependentUpon>editInvoice-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\editShippment-ERP.aspx.cs">
+      <DependentUpon>editShippment-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\editShippment-ERP.aspx.designer.cs">
+      <DependentUpon>editShippment-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\invoiceShipTrace-ERP.aspx.cs">
+      <DependentUpon>invoiceShipTrace-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\invoiceShipTrace-ERP.aspx.designer.cs">
+      <DependentUpon>invoiceShipTrace-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\invoiceSubMenu-ERP.aspx.cs">
+      <DependentUpon>invoiceSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\invoiceSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>invoiceSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\listCustomer-ERP.aspx.cs">
+      <DependentUpon>listCustomer-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\listCustomer-ERP.aspx.designer.cs">
+      <DependentUpon>listCustomer-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\listCustomerGroup-ERP.aspx.cs">
+      <DependentUpon>listCustomerGroup-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\listCustomerGroup-ERP.aspx.designer.cs">
+      <DependentUpon>listCustomerGroup-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\listInvoice-ERP.aspx.cs">
+      <DependentUpon>listInvoice-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\listInvoice-ERP.aspx.designer.cs">
+      <DependentUpon>listInvoice-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\listShipment-ERP.aspx.cs">
+      <DependentUpon>listShipment-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\listShipment-ERP.aspx.designer.cs">
+      <DependentUpon>listShipment-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\salesSubMenu-ERP.aspx.cs">
+      <DependentUpon>salesSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\salesSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>salesSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\sellSubMenu-ERP.aspx.cs">
+      <DependentUpon>sellSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\sellSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>sellSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\shipmentSubMenu-ERP.aspx.cs">
+      <DependentUpon>shipmentSubMenu-ERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Sales\shipmentSubMenu-ERP.aspx.designer.cs">
+      <DependentUpon>shipmentSubMenu-ERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccessLayer\DataAccess.cs" />
+    <Compile Include="DataAccessLayer\ReceiveData.aspx.cs">
+      <DependentUpon>ReceiveData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataAccessLayer\ReceiveData.aspx.designer.cs">
+      <DependentUpon>ReceiveData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Exceptions\HttpUnhandledException.aspx.cs">
+      <DependentUpon>HttpUnhandledException.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Exceptions\HttpUnhandledException.aspx.designer.cs">
+      <DependentUpon>HttpUnhandledException.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\addMachineGroup.aspx.cs">
+      <DependentUpon>addMachineGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\Maintenance\addMachineGroup.aspx.designer.cs">
+      <DependentUpon>addMachineGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\AdditionalUserInfo.aspx.cs">
+      <DependentUpon>AdditionalUserInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Membership\AdditionalUserInfo.aspx.designer.cs">
+      <DependentUpon>AdditionalUserInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\CreatingUserAccounts.aspx.cs">
+      <DependentUpon>CreatingUserAccounts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Membership\CreatingUserAccounts.aspx.designer.cs">
+      <DependentUpon>CreatingUserAccounts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\DeleteUserAccounts.aspx.cs">
+      <DependentUpon>DeleteUserAccounts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Membership\DeleteUserAccounts.aspx.designer.cs">
+      <DependentUpon>DeleteUserAccounts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\EnhancedCreateUserWizard.aspx.cs">
+      <DependentUpon>EnhancedCreateUserWizard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Membership\EnhancedCreateUserWizard.aspx.designer.cs">
+      <DependentUpon>EnhancedCreateUserWizard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\Guestbook.aspx.cs">
+      <DependentUpon>Guestbook.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Membership\Guestbook.aspx.designer.cs">
+      <DependentUpon>Guestbook.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\ResetUserPassword.aspx.cs">
+      <DependentUpon>ResetUserPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Membership\ResetUserPassword.aspx.designer.cs">
+      <DependentUpon>ResetUserPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\UserBasedAuthorization.aspx.cs">
+      <DependentUpon>UserBasedAuthorization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Membership\UserBasedAuthorization.aspx.designer.cs">
+      <DependentUpon>UserBasedAuthorization.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="polymer_ERPV2.0.Master.cs">
+      <DependentUpon>polymer_ERPV2.0.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="polymer_ERPV2.0.Master.designer.cs">
+      <DependentUpon>polymer_ERPV2.0.Master</DependentUpon>
+    </Compile>
+    <Compile Include="polymer_WebV2.0.Master.cs">
+      <DependentUpon>polymer_WebV2.0.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="polymer_WebV2.0.Master.designer.cs">
+      <DependentUpon>polymer_WebV2.0.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Productivity\EncodeDecodeModule.cs" />
+    <Compile Include="Productivity\WorkingDays.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roles\CreateUserWizardWithRoles.aspx.cs">
+      <DependentUpon>CreateUserWizardWithRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Roles\CreateUserWizardWithRoles.aspx.designer.cs">
+      <DependentUpon>CreateUserWizardWithRoles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Roles\ManageRoles.aspx.cs">
+      <DependentUpon>ManageRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Roles\ManageRoles.aspx.designer.cs">
+      <DependentUpon>ManageRoles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Roles\RoleBasedAuthorization.aspx.cs">
+      <DependentUpon>RoleBasedAuthorization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Roles\RoleBasedAuthorization.aspx.designer.cs">
+      <DependentUpon>RoleBasedAuthorization.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Roles\UsersAndRoles.aspx.cs">
+      <DependentUpon>UsersAndRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Roles\UsersAndRoles.aspx.designer.cs">
+      <DependentUpon>UsersAndRoles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Exceptions\UnauthorizedAccess.aspx.cs">
+      <DependentUpon>UnauthorizedAccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Exceptions\UnauthorizedAccess.aspx.designer.cs">
+      <DependentUpon>UnauthorizedAccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Products.aspx.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Products.aspx.designer.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Quality.aspx.cs">
+      <DependentUpon>Quality.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Quality.aspx.designer.cs">
+      <DependentUpon>Quality.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Membership\Web.config" />
+    <Content Include="BusinessLayer\Product\Web.config" />
+    <Content Include="BusinessLayer\Purchase\Web.config" />
+    <Content Include="BusinessLayer\Web.config" />
+    <None Include="packages.config" />
+    <Content Include="polymer_ERPV2.0.Master" />
+    <Content Include="Site.Master" />
+    <Content Include="Roles\Web.config" />
+    <Content Include="polymer_WebV2.0.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="Web.sitemap" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52626</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44390/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
