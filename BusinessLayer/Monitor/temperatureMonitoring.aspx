@@ -35,7 +35,7 @@
                 minorTicks: 1
             };
 
-            // Instantiate and draw our charts, passing in some options.
+            // Instantiate and draw our charts, passing in some options...
             var chart1 = new google.visualization.Gauge(document.getElementById('gauge_chart1'));
             chart1.draw(data1, options);
             var chart2 = new google.visualization.Gauge(document.getElementById('gauge_chart2'));

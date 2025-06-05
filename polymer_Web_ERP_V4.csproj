@@ -219,6 +219,7 @@
     <Content Include="Content\StyleSheet-ERPV2.0.css" />
     <Content Include="Content\StyleSheet1.css" />
     <Content Include="DataAccessLayer\ReceiveData.aspx" />
+    <Content Include="DataBase\script-cemsevenPC.sql" />
     <Content Include="Default.aspx" />
     <Content Include="Exceptions\HttpUnhandledException.aspx" />
     <Content Include="Global.asax" />
