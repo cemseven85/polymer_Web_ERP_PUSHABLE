@@ -25,24 +25,25 @@ namespace polymer_Web_ERP_V4
             if (!this.IsPostBack)
             {
 
-                Purchase_DateTextBox.Text= datePurchase.ToString("yyyy-MM-dd");
+                Purchase_DateTextBox.Text = datePurchase.ToString("yyyy-MM-dd");
 
                 DropDownSellerGroupBind();
                 DropDownSellerBind();
                 DropDownProductGroupBind();
                 DropDownProductBind();
                 UnitTextBoxBind();
-                VATTextBind();
+                //VATTextBind();
+                VATDropDownBind(); // We add Added DropDownList for VAT selection after the tbl_Purchase-add-taxId Branch and this is the bind of it
                 DropDownStockZoneBind();
-                DropDownOriginBind(); 
+                DropDownOriginBind();
                 DropDownEmployeeBind();
                 DropDownConsultantBind();
                 PurchaseGridViewBind();
 
-                                 
+
 
             }
-            
+
         }
 
         //private void DropDownSellerGroupBind()
@@ -161,7 +162,7 @@ namespace polymer_Web_ERP_V4
         protected void PurchaseProductGroupIDDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
             DropDownProductBind();
-            
+
         }
 
 
@@ -205,7 +206,8 @@ namespace polymer_Web_ERP_V4
             //Pulling the Unit of product to Text Box.  
 
             UnitTextBoxBind();
-            VATTextBind();
+            //VATTextBind();
+            VATDropDownBind(); // We add Added DropDownList for VAT selection after the tbl_Purchase-add-taxId Branch and this is the bind of it
         }
 
 
@@ -302,21 +304,44 @@ namespace polymer_Web_ERP_V4
             }
         }
 
-        private void VATTextBind()
-        {
-            string com = $"select [tbl_VAT].[vat_Name]\r\nfrom [tbl_VAT] \r\njoin tbl_product\r\non tbl_product.prod_VAT_Id=[tbl_VAT].[vat_Id]\r\nwhere tbl_product.prod_Id='{PurchaseProductIDDropDownList.SelectedValue}';";
+        //private void VATTextBind()
+        //{
+        //    string com = $"select [tbl_VAT].[vat_Name]\r\nfrom [tbl_VAT] \r\njoin tbl_product\r\non tbl_product.prod_VAT_Id=[tbl_VAT].[vat_Id]\r\nwhere tbl_product.prod_Id='{PurchaseProductIDDropDownList.SelectedValue}';";
 
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["polymerConnectionString"].ConnectionString))
+        //    using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["polymerConnectionString"].ConnectionString))
+        //    {
+        //        using (SqlDataAdapter adpt = new SqlDataAdapter(com, connection))
+        //        {
+        //            DataTable dt2 = new DataTable();
+        //            adpt.Fill(dt2);
+
+        //            VAT_TextBox.Text = dt2.Rows[0][0].ToString();
+        //        }
+        //    }
+        //}
+
+        // We add Added DropDownList for VAT selection after the tbl_Purchase-add-taxId Branch and this is the bind of it   
+
+        private void VATDropDownBind()
+        {
+            string com = "SELECT vat_Id, vat_Name FROM tbl_VAT";
+            string connectionString = ConfigurationManager.ConnectionStrings["polymerConnectionString"].ConnectionString;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlDataAdapter adpt = new SqlDataAdapter(com, connection))
                 {
-                    DataTable dt2 = new DataTable();
-                    adpt.Fill(dt2);
-
-                    VAT_TextBox.Text = dt2.Rows[0][0].ToString();
+                    DataTable dt = new DataTable();
+                    adpt.Fill(dt);
+                    VATDropDownList.DataSource = dt;
+                    VATDropDownList.DataTextField = "vat_Name";
+                    VATDropDownList.DataValueField = "vat_Id";
+                    VATDropDownList.DataBind();
                 }
             }
         }
+
+
 
         private void DropDownStockZoneBind()
         {
@@ -694,6 +719,8 @@ namespace polymer_Web_ERP_V4
                     itemName = Item_Name_TextBox.Text;
                     note = Item_Note_TextBox.Text;
 
+                    string vatID = VATDropDownList.SelectedValue; // We add Added DropDownList for VAT selection after the tbl_Purchase-add-taxId Branch and this is the bind of it
+
                     // First we add Item table
                     SqlCommand addItem = new SqlCommand($"insert into [tbl_item] (item_Name,[item_Quantitiy],[item_UnitPrice],[item_CreateDate],[item_UpdateDate],[stockZone_Id],[prod_Id],[origin_Id],[item_Note],[item_Consultant_Id]) " +
                         $"values ('{itemName}',{quantityDot}, {priceDot},'{date}' ,'{date}','{stockZoneID}','{productID}','{originID}','{note}','{consultantID}')", connection);
@@ -707,8 +734,14 @@ namespace polymer_Web_ERP_V4
                     itemID = dt2.Rows[0][0].ToString();
 
                     // Then add Purchase table
-                    SqlCommand addPurchase = new SqlCommand($"insert into [tbl_purchase] ([pur_Date],[item_Id],[pur_Sell_Id],[pur_Quantity],[pur_Weigh_Bridge_Code],[pur_Supervisor_Employee_Id],[pur_Unit_Price],[pur_Invoice_No],[pur_Consultant_Id]) " +
-                        $"values ('{date}' ,'{itemID}','{sellerID}',{quantityDot},'{weightBridgeCode}','{employeeID}',{priceDot}, '{invoiceNo}','{consultantID}')", connection);
+
+                    //SqlCommand addPurchase = new SqlCommand($"insert into [tbl_purchase] ([pur_Date],[item_Id],[pur_Sell_Id],[pur_Quantity],[pur_Weigh_Bridge_Code],[pur_Supervisor_Employee_Id],[pur_Unit_Price],[pur_Invoice_No],[pur_Consultant_Id]) " +
+                    //    $"values ('{date}' ,'{itemID}','{sellerID}',{quantityDot},'{weightBridgeCode}','{employeeID}',{priceDot}, '{invoiceNo}','{consultantID}')", connection);
+
+                                                    // We add VAT_Id to Purchase Table
+                    SqlCommand addPurchase = new SqlCommand($"insert into [tbl_purchase] ([pur_Date],[item_Id],[pur_Sell_Id],[pur_Quantity],[pur_Weigh_Bridge_Code],[pur_Supervisor_Employee_Id],[pur_Unit_Price],[pur_Invoice_No],[pur_Consultant_Id],[pur_VAT_Id]) " +
+                    $"values ('{date}' ,'{itemID}','{sellerID}',{quantityDot},'{weightBridgeCode}','{employeeID}',{priceDot}, '{invoiceNo}','{consultantID}', '{vatID}')", connection);
+
                     addPurchase.ExecuteNonQuery();
 
                     // We START to add this purchase to Transaction Table.
@@ -808,18 +841,39 @@ namespace polymer_Web_ERP_V4
                         jQueryPurchaseGridView.DataSource = dt;
                         jQueryPurchaseGridView.DataBind();
 
-                                        
+
                     }
 
                 }
             }
-            
+
             //Required for jQuery DataTables to work.
             jQueryPurchaseGridView.UseAccessibleHeader = true;
-            jQueryPurchaseGridView.HeaderRow.TableSection = TableRowSection.TableHeader;            
+            jQueryPurchaseGridView.HeaderRow.TableSection = TableRowSection.TableHeader;
 
         }
 
+        // This method is used to set the default VAT for the selected product in the PurchaseProductIDDropDownList.
+        private void SetDefaultVATForProduct()
+        {
+            string productId = PurchaseProductIDDropDownList.SelectedValue;
+            string connectionString = ConfigurationManager.ConnectionStrings["polymerConnectionString"].ConnectionString;
+            string query = "SELECT prod_VAT_Id FROM tbl_product WHERE prod_Id = @prodId";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@prodId", productId);
+                    connection.Open();
+                    object result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        VATDropDownList.SelectedValue = result.ToString();
+                    }
+                }
+            }
+        }
 
     }
 }

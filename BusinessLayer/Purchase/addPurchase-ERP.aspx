@@ -141,25 +141,35 @@
                             </asp:RegularExpressionValidator>
                         </td>
                         <td>
-                            <asp:TextBox ID="Purchase_Unit_TextBox" runat="server" CssClass="textBoxXS" Font-Size="15pt" readonly="true"></asp:TextBox>
+                            <asp:TextBox ID="Purchase_Unit_TextBox" runat="server" CssClass="textBoxXS" Font-Size="15pt" ReadOnly="true"></asp:TextBox>
                         </td>
                         <td>
-                            <asp:TextBox ID="Unit_Price_TextBox" runat="server" CssClass="textBoxS" Font-Size="15pt"  ></asp:TextBox>
-                            
+                            <asp:TextBox ID="Unit_Price_TextBox" runat="server" CssClass="textBoxS" Font-Size="15pt"></asp:TextBox>
 
-                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2"
+
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2"
                                 ControlToValidate="Unit_Price_TextBox" runat="server"
                                 ErrorMessage="Please enter a value" Display="Dynamic" CssClass="valError">
                             </asp:RequiredFieldValidator>
-                            
+
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator2"
                                 ControlToValidate="Unit_Price_TextBox" runat="server"
                                 ErrorMessage="Only Numbers Allowed" CssClass="valError" ValidationExpression="^(\d*\.?\d+|\d*(,\d*)*(\,\d+)?)$">     
                             </asp:RegularExpressionValidator>
                         </td>
+                       <%-- <td>
+                            <asp:TextBox ID="VAT_TextBox" runat="server" CssClass="textBoxXS" Font-Size="15pt" ReadOnly="true"></asp:TextBox>
+                        </td>--%>
+
+
+
+                                                    <%--Added DropDownList for VAT selection after the tbl_Purchase-add-taxId Branch --%>
+
                         <td>
-                            <asp:TextBox ID="VAT_TextBox" runat="server" CssClass="textBoxXS" Font-Size="15pt" readonly="true" ></asp:TextBox>
+                            <asp:DropDownList ID="VATDropDownList" runat="server" CssClass="textBoxXS" Font-Size="15pt"></asp:DropDownList>
                         </td>
+
+
                     </tr>
                 </table>
             </asp:Panel>
