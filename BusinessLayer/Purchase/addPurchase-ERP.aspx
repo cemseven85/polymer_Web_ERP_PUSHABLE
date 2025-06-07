@@ -166,7 +166,7 @@
                                                     <%--Added DropDownList for VAT selection after the tbl_Purchase-add-taxId Branch --%>
 
                         <td>
-                            <asp:DropDownList ID="VATDropDownList" runat="server" CssClass="textBoxXS" Font-Size="15pt"></asp:DropDownList>
+                            <asp:DropDownList ID="VATDropDownList" runat="server" CssClass="textBoxS" Font-Size="15pt"></asp:DropDownList>
                         </td>
 
 
